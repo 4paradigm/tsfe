@@ -1,0 +1,4 @@
+[console_scripts]
+flow = flow_client.flow:flow_cli
+pipeline = pipeline.pipeline_cli:cli
+

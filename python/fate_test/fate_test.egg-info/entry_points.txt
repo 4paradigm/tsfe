@@ -1,0 +1,3 @@
+[console_scripts]
+fate_test = fate_test.scripts.cli:cli
+

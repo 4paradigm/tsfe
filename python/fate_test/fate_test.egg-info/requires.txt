@@ -1,0 +1,11 @@
+click<8.0.0,>=7.1.2
+fate_client<0.2,>=0.1
+loguru<0.6.0,>=0.5.1
+pandas>=1.1.5
+poetry>=0.12
+prettytable<2.0.0,>=1.0.0
+requests<3.0.0,>=2.24.0
+requests_toolbelt<0.10.0,>=0.9.1
+ruamel.yaml<0.17.0,>=0.16.10
+sshtunnel<0.2.0,>=0.1.5
+colorama>=0.4.4

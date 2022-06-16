@@ -1,0 +1,72 @@
+{
+    "dsl_version": 2,
+    "initiator": {
+        "role": "guest",
+        "party_id": 9999
+    },
+    "role": {
+        "host": [
+            10000
+        ],
+        "guest": [
+            9999
+        ]
+    },
+    "job_parameters": {
+        "common": {
+            "work_mode": 0,
+            "backend": 0,
+            "job_type": "predict",
+            "model_id": "XXXX",
+            "model_version": "XXXX" 
+        }
+    },
+    "component_parameters": {
+	"common": {
+	    "dataio_0":{
+		"start_date": "2009-12-30"
+	    },
+	    "4PD_hetero_time_series_feature_extraction":{
+	    "method": ["count","distinct_count", "sum", "min", "max", "mean"]
+	     }
+        },
+        "role": {
+            "guest": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "dataA_test_guest",
+                            "namespace": "experiment"
+                        }
+		    },
+                    "dataio_0": {
+	    	        "ts_idx": 5
+                        },
+		    "4PD_hetero_time_series_feature_extraction":{
+		        "window_size": 64,
+		        "ts_idx": 5
+		    }
+                }
+            },
+            "host": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "dataA_test_host",
+                            "namespace": "experiment"
+                        }
+                    },
+		    "dataio_0": {
+			"ts_idx": 0
+                    },
+		    "4PD_hetero_time_series_feature_extraction":{
+		      "ts_idx": 0,
+		      "tsf_cols": [1,2],
+		      "target_cols": [1,2]
+		    }
+
+                }
+            }
+        }
+    }
+}

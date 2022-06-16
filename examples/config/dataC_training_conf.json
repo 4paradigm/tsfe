@@ -1,0 +1,118 @@
+{
+    "dsl_version": 2,
+    "initiator": {
+        "role": "guest",
+        "party_id": 9999
+    },
+    "role": {
+        "host": [
+            10000
+        ],
+        "guest": [
+            9999
+        ]
+    },
+    "job_parameters": {
+        "common": {
+            "job_type": "train",
+            "task_cores": 25,
+            "task_parallelism": 1
+        }
+    },
+    "component_parameters": {
+        "common": {
+	    "dataio_0":{
+		"start_date": "2009-12-30"
+		},
+	    "4PD_hetero_time_series_feature_extraction":{
+	        "method": ["count","distinct_count", "sum", "min", "max", "mean"]
+	        },
+            "hetero_secure_boost_0": {
+                "task_type": "classification",
+                "objective_param": {
+                    "objective": "cross_entropy"
+                },
+                "num_trees": 20,
+                "validation_freqs": 1,
+                "encrypt_param": {
+                    "method": "iterativeAffine"
+                },
+                "tree_param": {
+                    "max_depth": 6
+                }
+            },
+            "evaluation_0": {
+                "eval_type": "binary"
+            },
+            "hetero_feature_binning_0": {
+                "method": "quantile",
+                "compress_thres": 10000,
+                "head_size": 10000,
+                "error": 0.001,
+                "adjustment_factor": 0.5,
+                "bin_num": 10,
+                "bin_indexes": -1,
+                "bin_names": null,
+                "category_indexes": null,
+                "category_names": null,
+                "transform_param": {
+                    "transform_cols": -1,
+                    "transform_names": null,
+                    "transform_type": "bin_num"
+                },
+                "local_only": false
+            },
+            "hetero_feature_selection_0": {
+                "select_col_indexes": -1,
+                "select_names": [],
+                "filter_methods": [
+                    "iv_top_k"
+                ],
+                "iv_top_k_param": {
+                    "k": 40,
+                    "local_only": false
+                }
+            }
+        },
+        "role": {
+            "guest": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "dataC_train_guest", 
+                            "namespace": "experiment"
+                        }
+                    },
+                    "dataio_0": {
+                        "with_label": true,
+                        "output_format": "dense",
+			"ts_idx": 0
+                    },
+		    "4PD_hetero_time_series_feature_extraction":{
+		      "window_size": 64,
+		      "ts_idx": 0
+		    }
+                }
+            },
+            "host": {
+                "0": {
+                    "reader_0": {
+                        "table": {
+                            "name": "dataC_train_host",
+                            "namespace": "experiment"
+                        }
+                    },
+                    "dataio_0": {
+                        "with_label": false,
+			"ts_idx": 0
+                    },
+		    "4PD_hetero_time_series_feature_extraction":{
+		      "ts_idx": 0,
+		      "tsf_cols": [1,2,3],
+		      "target_cols": [1,2,3]
+		    }
+                }
+            }
+        }
+    }
+}

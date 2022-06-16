@@ -1,0 +1,63 @@
+{
+    "components": {
+        "reader_0": {
+            "module": "Reader",
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        },
+        "dataio_0": {
+            "input": {
+                "data": {
+                    "data": [
+                        "reader_0.data"
+                    ]
+                },
+                "model": [
+                    "pipeline.dataio_0.model"
+                ]
+            },
+            "module": "DataIO",
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        },
+	"4PD_hetero_time_series_feature_extraction": {
+            "module": "HeteroTimeSeriesFeatureExtraction",
+            "input": {
+                "data": {
+                    "data": [
+                        "dataio_0.data"
+                    ]
+                }
+            },
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        },
+        "hetero_secure_boost_0": {
+            "input": {
+                "data": {
+                    "test_data": [
+                        "4PD_hetero_time_series_feature_extraction.data"
+                    ]
+                },
+                "model": [
+                    "pipeline.hetero_secure_boost_0.model"
+                ]
+            },
+            "module": "HeteroSecureBoost",
+            "output": {
+                "data": [
+                    "data"
+                ]
+            }
+        }
+    }
+}

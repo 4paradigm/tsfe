@@ -1,0 +1,8 @@
+{
+    "file": "datasets/dataC/train_host.csv",
+    "head": 1,
+    "partition": 16,
+    "work_mode": 0,
+    "table_name": "dataC_train_host",
+    "namespace": "experiment"
+}
