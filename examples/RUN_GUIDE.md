@@ -8,6 +8,7 @@ flow data upload -c config.json
 
 
 2. launch job
+
 flow job submit -c config.json -d dsl.json
 
 
