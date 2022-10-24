@@ -4,6 +4,11 @@ This repo details the implementation of time series features extraction in feder
 ## How to run
 Example configuration files and datasets are provided in [examples](examples), follow [RUN_GUIDE.md](examples/RUN_GUIDE.md) to run examples.
 
+## Publication
+This work has been published in the proceedings of the 31st ACM International Conference on Information & Knowledge Management, CIKM '22. Read [HERE](paper/3511808.3557176.pdf).
+
+- Siqi Wang, Jiashu Li, Mian Lu, Zhao Zheng, Yuqiang Chen, and Bingsheng He. 2022. [A System for Time Series Feature Extraction in Federated Learning](https://dl.acm.org/doi/10.1145/3511808.3557176). In Proceedings of the 31st ACM International Conference on Information & Knowledge Management (CIKM) 2022.
+
 ## References
 <a id="1">[1]</a> OpenMLDB. 2021. An Open Source Database for Machine Learning Systems. https://github.com/4paradigm/OpenMLDB.
 
